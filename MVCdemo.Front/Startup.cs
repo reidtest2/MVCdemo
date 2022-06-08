@@ -50,7 +50,7 @@ namespace MVCdemo.Front
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=CAV}/{action=TestData2}/{id?}");
             });
         }
     }

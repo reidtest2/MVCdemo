@@ -1,0 +1,29 @@
+﻿@using MVCdemo.Front.ViewModels
+
+dynamic 動態的
+@{
+    var a = (List<DemoVM>)ViewData["p"];
+}
+@model List<DemoVM>
+<ul>
+    @foreach(var item in a)
+    {
+        <li>
+            <h3>@item.S</h3>
+            <p>@item.I</p>
+            <div>@item.B</div>
+        </li>
+    }
+</ul>
+<hr></hr>
+
+<ul>
+    @foreach(var item in Model)
+    {
+        <li>
+            <h3>@item.S</h3>
+            <p>@item.I</p>
+            <div>@item.B</div>
+        </li>
+    }
+</ul>

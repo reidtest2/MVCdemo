@@ -2,14 +2,25 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+form只支援 get/post兩種方法
+【input的name屬性必須和 後端參數/型別屬性 同名】
+<form action="~/CAV/PostByForm" method="post">
+    <label>名字：
+        <input name="s"/>  
+    </label>
+    <label>身高：
+        <input name="i"/>  
+    </label>
+    <label>性別：
+        <input name="B"  type="checkbox"/>  
+    </label>
 
-<p>結尾...</p>
+    -----兩種按鈕都行
+    <input type="submit" value="提交"/>
+    <button type="submit">提交</button>
+</form>
 
-<div>html結構...</div>
+<button id="byAJAX">byAJAX</button>
 
 @section TopCSS{
     <link rel="stylesheet" href="~/css/xxx.css">
@@ -17,4 +28,21 @@
 
 @section EndJS{
     <script src="~/js/xxx.js"></script>
+    <script>
+        byAJAX.onclick=()=>{
+            let url = "/CAV/PostByAJAX"
+            let data = {
+                s:"ASD",
+                i:123,
+                b:true,
+            }
+            fetch(url, { 
+                method:"POST",
+                body: JSON.stringify(data),
+                headers: {
+                    'content-type': 'application/json'
+                }
+            })
+        }
+    </script>
 }
