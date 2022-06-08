@@ -74,8 +74,8 @@ namespace MVCdemo.Front.Controllers
             ViewData["p"] = "data";
             ViewBag.p = "bag";
 
-            var response = View( model: "模型資料" );  //可指定參數，避免誤會
-            return response;
+            var 執行View檔所需的參數們 = View( model: "模型資料" );  //可指定參數，避免誤會
+            return 執行View檔所需的參數們;
         }
 
         //2-2 複雜的
